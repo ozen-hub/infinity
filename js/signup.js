@@ -7,12 +7,14 @@ function User(username,email,type,avatar,password){
 }
 const registerUser=()=>{
     // trim => "__Nimal_" ==> after trim  ==> "Nimal" (spaces rid)
+    let tempPassword = $('#password').val().toString().trim();
+    console.log(CryptoJS.AES.encrypt('infinity','jkh'));
     let user = new User(
         $('#username').val().toString().trim(),
         $('#email').val().toString().trim(),
         $('#type').val(),
         "",
-        $('#password').val().toString().trim()
+        encryptedPwd
     );
     localStorage.setItem('users',JSON.stringify(user));
 }
