@@ -1,0 +1,170 @@
+.main-outer{
+    width: 100%;
+    height: 100vh;
+    background-color: #bdc3c7;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.round{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border-radius: 100%;
+}
+.top-round-1{
+    background-color: #E33935;
+    left: -30px;
+    top: -30px;
+    z-index: 1;
+}
+.top-round-2{
+    background-color: #C41617;
+    left: -25px;
+    top: -32px;
+}
+.bottom-round-1{
+    background-color: #E33935;
+    right: -30px;
+    bottom: -30px;
+    z-index: 1;
+}
+.bottom-round-2{
+    background-color: #C41617;
+    right: -25px;
+    bottom: -32px;
+}
+/*login-outer*/
+.inner{
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    position: relative;
+    z-index: 5;
+    border-radius: 10px;
+    display: flex;
+}
+.context{
+    flex: 1;
+}
+/*left side area*/
+.data-wrapper{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    overflow: auto;
+}
+/*scroll indicator*/
+.data-wrapper::-webkit-scrollbar{
+    width: 8px;
+}
+.data-wrapper::-webkit-scrollbar-track{
+    background-color: #bdc3c7;
+}
+.data-wrapper::-webkit-scrollbar-thumb{
+    background-color: #d35400;
+    border-radius: 10px;
+}
+/*scroll indicator*/
+.welcome-text{
+    text-align: center;
+}
+.logo-name-outer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.logo-name-outer > img{
+    margin-right: 10px;
+}
+.login-component-outer{
+    width: 100%;
+    padding: 0 40px;
+}
+.col-12{
+    margin-bottom: 20px;
+}
+button{
+    width: 100%;
+}
+.separate-outer{
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.separate-outer > p{
+    margin: 0;
+}
+.line{
+    width: 45%;
+    height: 1px;
+    background-color: black;
+}
+.dont-text{
+    color: black!important;
+}
+.sign-up-text{
+    color: #d35400!important;
+}
+.sign-up-text:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+/*left side area*/
+/*right side area*/
+.right{
+    background-image: url("https://img.freepik.com/free-photo/abstract-blur-defocused-restaurant-coffee-shop-cafe-interior_1203-9331.jpg?w=740&t=st=1666454790~exp=1666455390~hmac=490ea805e0ec6cea54c9040a937ae37f2f1d55d3a741d6fd4812f7872779b92c");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.data{
+    position: relative;
+    z-index: 1;
+}
+.shadow{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.logo> img{
+    width: 100px;
+
+}
+.title{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.desc{
+    padding: 0px 20px;
+    color: white;
+    text-align: justify;
+    margin-bottom: 80px;
+}
+.bottom-data{
+    display: flex;
+    justify-content: space-between;
+}
+.bottom-data > p{
+    color: white;
+    padding: 0 20px;
+}
+/*right side area*/
+
+/*login-outer*/
