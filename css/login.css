@@ -69,9 +69,13 @@
 }
 .login-component-outer{
     width: 100%;
-    height: 50px;
-    border: 1px solid red;
     padding: 0 40px;
+}
+.col-12{
+    margin-bottom: 20px;
+}
+button{
+    width: 100%;
 }
 /*left side area*/
 /*right side area*/
