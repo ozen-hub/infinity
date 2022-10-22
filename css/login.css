@@ -49,6 +49,31 @@
 .context{
     flex: 1;
 }
+/*left side area*/
+.data-wrapper{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+.welcome-text{
+    text-align: center;
+}
+.logo-name-outer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.logo-name-outer > img{
+    margin-right: 10px;
+}
+.login-component-outer{
+    width: 100%;
+    height: 50px;
+    border: 1px solid red;
+    padding: 0 40px;
+}
+/*left side area*/
 /*right side area*/
 .right{
     background-image: url("https://img.freepik.com/free-photo/abstract-blur-defocused-restaurant-coffee-shop-cafe-interior_1203-9331.jpg?w=740&t=st=1666454790~exp=1666455390~hmac=490ea805e0ec6cea54c9040a937ae37f2f1d55d3a741d6fd4812f7872779b92c");
