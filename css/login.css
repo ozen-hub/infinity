@@ -1,0 +1,22 @@
+.main-outer{
+    width: 100%;
+    height: 100vh;
+    background-color: #bdc3c7;
+}
+.round{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border-radius: 100%;
+}
+.top-round-1{
+    background-color: #E33935;
+    left: -30px;
+    top: -30px;
+    z-index: 1;
+}
+.top-round-2{
+    background-color: #C41617;
+    left: -25px;
+    top: -32px;
+}
