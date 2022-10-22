@@ -21,6 +21,20 @@ const registerUser=()=>{
         "",
         encryptedPwd.toString()
     );
-    users.push(user);
-    localStorage.setItem('users',JSON.stringify(users));
+    if (!isAlreadyExists(user.username)){
+        users.push(user);
+        localStorage.setItem('users',JSON.stringify(users));
+    }else{
+        alert('user name is already exists!')
+    }
+
+}
+
+const isAlreadyExists=(name)=>{
+    for(const temp of users){
+        if (temp.username===name){
+            return true;
+        }
+    }
+    return false;
 }
