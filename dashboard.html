@@ -12,7 +12,7 @@
 
     <link type="text/css" rel="stylesheet" href="css/dashboard.css">
 </head>
-<body>
+<body onload="initializeItems()">
 
 <div class="main-outer">
     <div class="inner">
@@ -56,16 +56,16 @@
 
 
                 <div class="area">
-                    <div onclick="placeOrder(1)" class="item">1</div>
-                    <div onclick="placeOrder(2)" class="item">2</div>
-                    <div onclick="placeOrder(3)" class="item">3</div>
-                    <div onclick="placeOrder(4)" class="item">4</div>
-                    <div onclick="placeOrder(5)" class="item">5</div>
-                    <div onclick="placeOrder(6)" class="item">6</div>
-                    <div onclick="placeOrder(7)" class="item">7</div>
-                    <div onclick="placeOrder(8)" class="item">8</div>
-                    <div onclick="placeOrder(9)" class="item">9</div>
-                    <div onclick="placeOrder(10)" class="item">10</div>
+                    <div onclick="placeOrder(1)" class="item">
+                        <div class="item-inner">
+                            <div class="name-price">
+                                <p class="item-name">Mc Chicken</p>
+                                <p class="item-price">250</p>
+                            </div>
+                            <img src="https://www.mcdelivery.lk/lk/static/1665910229621/assets/94/products/2004.png?"
+                                 alt="">
+                        </div>
+                    </div>
                 </div>
 
 
