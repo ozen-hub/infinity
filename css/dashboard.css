@@ -21,12 +21,18 @@
 .play-area{
     flex: 1;
     display: flex;
+    height: 100%;
 }
 .left{
     width: 280px;
     background-color: white;
     height: 100%;
+    overflow: auto;
 }
+.left::-webkit-scrollbar{width: 8px;}
+.left::-webkit-scrollbar-track{background-color: #bdc3c7;}
+.left::-webkit-scrollbar-thumb{background-color: #d35400; border-radius: 5px;}
+
 .right{
     width: 200px;
     background-color: white;
@@ -37,7 +43,13 @@
     background-color: white;
     border-right: 1px solid #bdc3c7;
     border-left: 1px solid #bdc3c7;
+    overflow: auto;
+    height: 100%;
 }
+.middle::-webkit-scrollbar{width: 8px;}
+.middle::-webkit-scrollbar-track{background-color: #bdc3c7;}
+.middle::-webkit-scrollbar-thumb{background-color: #d35400; border-radius: 5px;}
+
 .space{
     width: 280px;
 }

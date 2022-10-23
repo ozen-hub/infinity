@@ -109,17 +109,27 @@ const placeOrder = (item) => {
         id: temp.id,
         name: temp.name,
         requestedQty: 1,
-        total:temp.price
+        total: temp.price
     }
     if (qty != 0) {
         tempQty = Number(qty);
-        total=temp.price*tempQty;
-        item['requestedQty']=tempQty;
-        item['total']=total;
+        total = temp.price * tempQty;
+        item['requestedQty'] = tempQty;
+        item['total'] = total;
     }
 
     itemsForOrder.push(item);
-    console.log(itemsForOrder);
+
+    let html = '';
+    itemsForOrder.forEach(resp => {
+        html += `<tr>
+<td>${resp.name}</td>
+<td>${resp.requestedQty}</td>
+<td>${resp.total}</td>
+</tr>`;
+
+    });
+    $('#order-items').html(html);
 }
 
 const manageCount = (number) => {
