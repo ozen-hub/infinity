@@ -105,12 +105,16 @@ const placeOrder = (item) => {
     // itemsForOrder.push(item);
     //let temp = alacarta.filter(e=> e.id==item);
     let temp = alacarta.find(e => e.id == item);
+
     item = {
         id: temp.id,
         name: temp.name,
         requestedQty: 1,
         total: temp.price
     }
+
+    const exists = isAlreadyExists(temp.id);
+
     if (qty != 0) {
         tempQty = Number(qty);
         total = temp.price * tempQty;
@@ -118,7 +122,16 @@ const placeOrder = (item) => {
         item['total'] = total;
     }
 
-    itemsForOrder.push(item);
+    if (exists!=-1){
+        itemsForOrder[exists]={
+            id: itemsForOrder[exists].id,
+            name: itemsForOrder[exists].name,
+            requestedQty: 1,
+            total: temp.price
+        }
+    }else{
+        itemsForOrder.push(item);
+    }
 
     let html = '';
     itemsForOrder.forEach(resp => {
@@ -130,6 +143,15 @@ const placeOrder = (item) => {
 
     });
     $('#order-items').html(html);
+};
+
+const isAlreadyExists=(id)=>{
+    for(let x=0; x<itemsForOrder.length; x++){
+        if(itemsForOrder[x].id==id){
+            return x;
+        }
+    }
+    return -1;
 }
 
 const manageCount = (number) => {
