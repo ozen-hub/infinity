@@ -123,11 +123,13 @@ const placeOrder = (item) => {
     }
 
     if (exists!=-1){
+        isExistsQty=item.requestedQty+itemsForOrder[exists].requestedQty;
+        isExistsTotal = item['total']+itemsForOrder[exists].total;
         itemsForOrder[exists]={
             id: itemsForOrder[exists].id,
             name: itemsForOrder[exists].name,
-            requestedQty: 1,
-            total: temp.price
+            requestedQty: isExistsQty,
+            total: isExistsTotal
         }
     }else{
         itemsForOrder.push(item);
