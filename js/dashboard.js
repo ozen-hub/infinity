@@ -1,9 +1,10 @@
 qty='';
 //=================
 let itemsForOrder = [];
+let alacarta = [];
 //=================
 initializeItems = () => {
-    let alacarta = [];
+
     alacarta.push({
         id:'1001',
         name: 'Mc Chicken',
@@ -103,17 +104,13 @@ if (temp === null) {
 
 const placeOrder = (item) => {
     itemsForOrder.push(item);
-    let row = '';
-    itemsForOrder.forEach(data => {
-        row += `<li>${data}</li>`
-        $('#items-list').html(row);
-    });
-    console.log(itemsForOrder)
+    let temp = alacarta.filter(e=> e.id==item);
+    console.log(temp);
 }
 
 const manageCount=(number)=>{
-    if (number===0){
-        if (qty===0){
+    if (number==0){
+        if (qty==0){
             return;
         }else{
             qty+=number;
@@ -121,5 +118,9 @@ const manageCount=(number)=>{
     }else{
         qty+=number;
     }
+    $('.count-text').html(qty);
+}
+const resetQty=()=>{
+    qty='';
     $('.count-text').html(qty);
 }
