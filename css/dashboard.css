@@ -104,4 +104,33 @@
     margin: 0;
     padding: 0 3px;
 }
+
+.number-buttons{
+    display: flex;
+    width: 100%;
+}
+.buttons{
+    flex: 1;
+}
+.count-wrap{
+    width: 100px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.buttons{
+    padding: 5px 5px;
+}
+.buttons > button{
+    width: 45px;
+    height: 45px;
+}
+.count-text{
+    margin: 0;
+    font-weight: bold;
+}
+.btn-outline-primary{
+    transform: rotate(90deg);
+}
 /*========================*/
