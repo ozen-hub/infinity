@@ -10,5 +10,61 @@
 .inner{
     width: 90%;
     height: 90%;
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+.nav-bar{
+    height: 50px;
+    width: 100%;
+    display: flex;
+}
+.play-area{
+    flex: 1;
+    display: flex;
+}
+.left{
+    width: 280px;
+    background-color: white;
+    height: 100%;
+}
+.right{
+    width: 200px;
+    background-color: white;
+    height: 100%;
+}
+.middle{
+    flex: 1;
+    background-color: white;
+    border-right: 1px solid #bdc3c7;
+    border-left: 1px solid #bdc3c7;
+}
+.space{
+    width: 280px;
+}
+.button-bar{
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+.button-bar> ul{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.btn-dark{
+    background-color: #34495E!important;
+    border: none;
+    width: 100px;
+    border-radius: 0;
+}
+#first-button{
+    border-top-left-radius: 10px;
+}
+#last-button{
+    border-top-right-radius: 10px;
+}
+#middle-button{
+    border-right: 1px solid white;
+    border-left: 1px solid white;
 }
