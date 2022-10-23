@@ -1,3 +1,7 @@
+qty='';
+//=================
+let itemsForOrder = [];
+//=================
 initializeItems = () => {
     let alacarta = [];
     alacarta.push({
@@ -88,9 +92,7 @@ getRand=()=>{
     return Math.floor(Math.random() * (255 - 0)) + 0;
 }
 
-//=================
-let itemsForOrder = [];
-//=================
+
 
 let temp = JSON.parse(localStorage.getItem('users'));
 console.log(temp)
@@ -107,4 +109,17 @@ const placeOrder = (item) => {
         $('#items-list').html(row);
     });
     console.log(itemsForOrder)
+}
+
+const manageCount=(number)=>{
+    if (number===0){
+        if (qty===0){
+            return;
+        }else{
+            qty+=number;
+        }
+    }else{
+        qty+=number;
+    }
+    $('.count-text').html(qty);
 }
