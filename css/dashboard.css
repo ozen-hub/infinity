@@ -46,11 +46,24 @@
 .process-top{
     display: flex;
     flex: 0.5;
-    border: 1px solid blue;
+    margin: 5px 10px;
 }
 .order-taking-time-outer, .total-cost-outer{
     flex: 1;
-    border: 1px solid red;
+    border: 1px solid #bdc3c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-taking-time-outer > h3{
+    margin: 0;
+    text-align: center;
+    /*width: 100%;*/
+}
+.total-cost-outer >  h5{
+   color: #E33935;
+    margin: 0;
 }
 
 .left::-webkit-scrollbar{width: 8px;}
