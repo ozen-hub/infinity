@@ -2,7 +2,9 @@ qty = '';
 //=================
 let itemsForOrder = [];
 let alacarta = [];
-let isInAnOrder=false;
+let isInAnOrder = false;
+let orderId = 'D-001';
+let orders = [];
 //=================
 initializeItems = () => {
 
@@ -101,36 +103,37 @@ if (temp === null) {
     window.location.replace('index.html');
 }
 
+let timeOut = null;
 //=================calculateTime
-const calculateTime=()=>{
-    let min=0;
-    let sec=0;
-    let timeOut = setInterval(()=>{
-        sec+=1;
-        if (sec<10){
-            $('.sec').html('0'+sec);
-        }else{
+const calculateTime = () => {
+    let min = 0;
+    let sec = 0;
+    timeOut = setInterval(() => {
+        sec += 1;
+        if (sec < 10) {
+            $('.sec').html('0' + sec);
+        } else {
             $('.sec').html(sec);
         }
-        if (sec==60){
-            sec=0;
-            min+=1;
-            if (min<10){
-                $('.min').html('0'+min);
-            }else{
+        if (sec == 60) {
+            sec = 0;
+            min += 1;
+            if (min < 10) {
+                $('.min').html('0' + min);
+            } else {
                 $('.min').html(min);
             }
         }
 
-    },100);
+    }, 1000);
 
 }
 //=================calculateTime
 
 const placeOrder = (item) => {
     //===================Time generate=================
-    if (!isInAnOrder){
-        isInAnOrder=true;
+    if (!isInAnOrder) {
+        isInAnOrder = true;
         calculateTime();
     }
 
@@ -156,22 +159,22 @@ const placeOrder = (item) => {
         item['total'] = total;
     }
 
-    if (exists!=-1){
-        isExistsQty=item.requestedQty+itemsForOrder[exists].requestedQty;
-        isExistsTotal = item['total']+itemsForOrder[exists].total;
-        itemsForOrder[exists]={
+    if (exists != -1) {
+        isExistsQty = item.requestedQty + itemsForOrder[exists].requestedQty;
+        isExistsTotal = item['total'] + itemsForOrder[exists].total;
+        itemsForOrder[exists] = {
             id: itemsForOrder[exists].id,
             name: itemsForOrder[exists].name,
             requestedQty: isExistsQty,
             total: isExistsTotal
         }
-    }else{
+    } else {
         itemsForOrder.push(item);
     }
 
     loadOrderTableData();
 };
-const loadOrderTableData=()=>{
+const loadOrderTableData = () => {
     let html = '';
     itemsForOrder.forEach(resp => {
         html += `<tr onclick="removeItem('${resp.id}')">
@@ -185,9 +188,9 @@ const loadOrderTableData=()=>{
     calculateTotal();
 }
 
-const isAlreadyExists=(id)=>{
-    for(let x=0; x<itemsForOrder.length; x++){
-        if(itemsForOrder[x].id==id){
+const isAlreadyExists = (id) => {
+    for (let x = 0; x < itemsForOrder.length; x++) {
+        if (itemsForOrder[x].id == id) {
             return x;
         }
     }
@@ -210,22 +213,56 @@ const resetQty = () => {
     qty = '';
     $('.count-text').html(qty);
 }
-const calculateTotal=()=>{
-    let total=0;
-    for (let temp of itemsForOrder){
-        total+=temp.total;
+const calculateTotal = () => {
+    let total = 0;
+    for (let temp of itemsForOrder) {
+        total += temp.total;
     }
     $('#total').html(total);
 }
-const removeItem=(id)=>{
-    if (confirm('are you sure?')){
-        for (let temp=0; temp<itemsForOrder.length; temp++){
-            if (id==itemsForOrder[temp].id){
-                itemsForOrder.splice(temp,1);
+const removeItem = (id) => {
+    if (confirm('are you sure?')) {
+        for (let temp = 0; temp < itemsForOrder.length; temp++) {
+            if (id == itemsForOrder[temp].id) {
+                itemsForOrder.splice(temp, 1);
                 loadOrderTableData();
                 return;
             }
         }
     }
+}
 
+function Order(
+    id, date, takingTime, placedTime, total, presentedTime, items
+) {
+    this.id = id;
+    this.date = date;
+    this.takingTime = takingTime;
+    this.placedTime = placedTime;
+    this.total = total;
+    this.presentedTime = presentedTime;
+    this.items = items;
+}
+
+const makeOrder = () => {
+    let todayDate = new Date().toISOString().split('T')[0];
+    let placedTime = new Date().toLocaleTimeString();
+    let takingTime = $('.min').html() + ' : ' + $('.sec').html();
+    let total = $('#total').html();
+    let order = new Order(orderId, todayDate, takingTime, placedTime, total, '0', itemsForOrder);
+    itemsForOrder = [];
+    clearInterval(timeOut);
+
+    //==============
+    setClear();
+    //==============
+    loadOrderTableData();
+    orders.push(order);
+    localStorage.setItem('orders', JSON.stringify(orders));
+    console.log(orders);
+}
+const setClear = () => {
+    $('#total').html('0')
+    $('.min').html('00');
+    $('.sec').html('00')
 }
