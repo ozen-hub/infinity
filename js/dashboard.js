@@ -145,6 +145,7 @@ const placeOrder = (item) => {
 
     });
     $('#order-items').html(html);
+    calculateTotal();
 };
 
 const isAlreadyExists=(id)=>{
@@ -171,4 +172,11 @@ const manageCount = (number) => {
 const resetQty = () => {
     qty = '';
     $('.count-text').html(qty);
+}
+const calculateTotal=()=>{
+    let total=0;
+    for (let temp of itemsForOrder){
+        total+=temp.total;
+    }
+    $('#total').html(total);
 }
