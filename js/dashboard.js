@@ -343,5 +343,18 @@ const loadOrderDetailsTable=(id)=>{
     $('#placedTime').html(tempOrder.placedTime);
     $('#totalCost').html(tempOrder.total);
     $('#presentedTime').html(tempOrder.presentedTime);
+
+    let dataHtml='';
+    tempOrder.items.forEach(data=>{
+        dataHtml+=`
+        <tr>
+                        <td>${data.id}</td>
+                        <td>${data.name}</td>
+                        <td>${data.requestedQty}</td>
+                        <td>${data.total}</td>
+                    </tr>`;
+    });
+
+    $('#order-details').html(dataHtml);
     $('#order-details-modal-button').click();
 }
