@@ -69,6 +69,8 @@ initializeItems = () => {
         price: 250
     });
     localStorage.setItem('alacarta', JSON.stringify(alacarta));
+    generateOrderId();
+    initializeOrders();
 
     //================
     let item = '';
@@ -88,6 +90,13 @@ initializeItems = () => {
     });
     $('.area').html(item);
 };
+
+let initializeOrders=()=>{
+    let ordersSet=JSON.parse(localStorage.getItem('orders'));
+    if (ordersSet!=null){
+        orders=ordersSet;
+    }
+}
 
 const getColor = () => {
     return getRand() + ',' + getRand() + ',' + getRand();
@@ -260,6 +269,7 @@ const makeOrder = () => {
     orders.push(order);
     localStorage.setItem('orders', JSON.stringify(orders));
     console.log(orders);
+    generateOrderId();
     setPlacedOrdersToTable();
 }
 const setClear = () => {
@@ -282,4 +292,26 @@ setPlacedOrdersToTable = () => {
         `;
     });
     $('#placed_orders').html(ordersHtml);
+};
+
+const generateOrderId=()=>{
+    let ordersSet=JSON.parse(localStorage.getItem('orders'));
+    if (ordersSet!=null){
+        // generate order id
+        // last element of the array
+        // grab the order id
+        // order is ==> D-001==> so we will have to split them
+        // and get the integer number=> because we need to increment that number
+        let tempId = Number(ordersSet[ordersSet.length-1].id.toString().split('-')[1]); // [10,20,30]=> if you want to access 30 then we must use 2 as our index ==> after split process => ['D','010]
+        let number = tempId+1;
+        if (number<9){
+            orderId='D-00'+number;
+        }else if(number<99){
+            orderId='D-0'+number;
+        }else{
+            orderId='D-'+number;
+        }
+    }else{
+        orderId='D-001';
+    }
 }
