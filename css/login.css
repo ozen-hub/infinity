@@ -1,6 +1,7 @@
 .main-outer{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     background-color: #bdc3c7;
     position: relative;
     overflow: hidden;
