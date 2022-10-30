@@ -71,6 +71,7 @@
                         <button onclick="manageCount('8')" class="btn btn-primary">8</button>
                         <button onclick="manageCount('9')" class="btn btn-primary">9</button>
                         <button onclick="resetQty()" class="btn btn-outline-primary">&curarr;</button>
+                        <button  class="btn btn-outline-danger"  data-bs-toggle="modal" data-bs-target="#mainModal">&copf;</button>
                     </div>
                     <div class="count-wrap">
                         <p class="count-text"></p>
@@ -90,6 +91,43 @@
         </div>
     </div>
 </div>
+
+
+
+
+<!--Modal area-->
+
+<!--main modal-->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="mainModal" tabindex="-1" aria-labelledby="mainModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Widgets</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="margin: 0">
+                    <div class="col-12" style="margin-bottom: 20px">
+                        <button  style="width: 100%" class="btn btn-outline-dark">Show Orders</button>
+                    </div>
+                    <div class="col-12">
+                        <button  style="width: 100%" class="btn btn-outline-success">Show Improvement</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--main modal-->
+
+<!--Modal area-->
 
 
 <!-- JavaScript Bundle with Popper -->
