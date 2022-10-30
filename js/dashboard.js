@@ -260,9 +260,26 @@ const makeOrder = () => {
     orders.push(order);
     localStorage.setItem('orders', JSON.stringify(orders));
     console.log(orders);
+    setPlacedOrdersToTable();
 }
 const setClear = () => {
-    $('#total').html('0')
+    $('#total').html('0');
     $('.min').html('00');
-    $('.sec').html('00')
+    $('.sec').html('00');
+    isInAnOrder=false;
+}
+setPlacedOrdersToTable = () => {
+    let ordersHtml = '';
+    orders.forEach(response => {
+        ordersHtml += `
+        <tr>
+          <td>
+             <p style="font-size: 12px; margin: 0; font-weight: bold">
+               <span>${response.id}</span>&nbsp;=>&nbsp;<span>${response.total} USD</span>&nbsp;=>&nbsp;<span>10 : 12</span>
+             </p>
+          </td>
+        </tr>
+        `;
+    });
+    $('#placed_orders').html(ordersHtml);
 }
