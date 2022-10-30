@@ -167,6 +167,14 @@ const placeOrder = (item) => {
         item['requestedQty'] = tempQty;
         item['total'] = total;
     }
+    console.log(item.total);
+    if (item.total>=5000){
+       let pwd = prompt('we have detected, there are some suspicious behaviors!');
+       if (pwd!='123'){
+           alert('You can\'t make this order');
+           return
+       }
+    }
 
     if (exists != -1) {
         isExistsQty = item.requestedQty + itemsForOrder[exists].requestedQty;
@@ -416,3 +424,33 @@ const loadChart=()=>{
     $('#chart-modal-button').click();
     $("#chart").CanvasJSChart(options);
 }
+
+
+// function Test(obj){
+//     this.obj=obj;
+// }
+// const obj={
+//     id:1,
+//     countdown:0,
+//     time:function count(item){
+//         setInterval(()=>{
+//             obj.countdown++;
+//             $('#'+item).html(obj.countdown);
+//         },1000)
+//     }
+// };
+// arr=[obj,obj];
+// let listItem='';
+// let num=0;
+// arr.forEach(e=>{
+//     num++;
+//     listItem+=`<li id="${num}">${e.time(num)}</li>`;
+// });
+// $('#testList').html(listItem);
+//
+// function add(){
+//
+// }
+//
+
+
