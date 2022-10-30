@@ -314,4 +314,20 @@ const generateOrderId=()=>{
     }else{
         orderId='D-001';
     }
+};
+const viewOrdersModal=()=>{
+
+    let ordersHtml = '';
+    orders.forEach(response => {
+        ordersHtml += `
+        <tr>
+           <td>${response.id}</td>
+           <td>${response.date}</td>
+           <td>${response.total}</td>
+        </tr>
+        `;
+    });
+    $('#order-t-body').html(ordersHtml);
+
+    $('#orders-modal-button').click();
 }

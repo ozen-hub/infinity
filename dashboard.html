@@ -98,10 +98,7 @@
 <!--Modal area-->
 
 <!--main modal-->
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
+<!--main modal-->
 <div class="modal fade" id="mainModal" tabindex="-1" aria-labelledby="mainModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -112,7 +109,7 @@
             <div class="modal-body">
                 <div class="row" style="margin: 0">
                     <div class="col-12" style="margin-bottom: 20px">
-                        <button  style="width: 100%" class="btn btn-outline-dark">Show Orders</button>
+                        <button  style="width: 100%" class="btn btn-outline-dark" onclick="viewOrdersModal()">Show Orders</button>
                     </div>
                     <div class="col-12">
                         <button  style="width: 100%" class="btn btn-outline-success">Show Improvement</button>
@@ -125,9 +122,43 @@
         </div>
     </div>
 </div>
-<!--main modal-->
-
 <!--Modal area-->
+
+<!--orders modal-->
+<button style="display: none" id="orders-modal-button" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orders-modal">
+
+</button>
+<div class="modal fade" id="orders-modal" tabindex="-1" aria-labelledby="orders-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="orders-modalLabel">Orders</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-t-body">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button onclick="print();" type="button" class="btn btn-primary">Print</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--orders area-->
+
+<!-- Modal -->
+
 
 
 <!-- JavaScript Bundle with Popper -->
