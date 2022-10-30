@@ -112,8 +112,17 @@ const calculateTime=()=>{
         }else{
             $('.sec').html(sec);
         }
+        if (sec==60){
+            sec=0;
+            min+=1;
+            if (min<10){
+                $('.min').html('0'+min);
+            }else{
+                $('.min').html(min);
+            }
+        }
 
-    },1000);
+    },100);
 
 }
 //=================calculateTime
