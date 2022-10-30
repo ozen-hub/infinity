@@ -135,9 +135,12 @@ const placeOrder = (item) => {
         itemsForOrder.push(item);
     }
 
+    loadOrderTableData();
+};
+const loadOrderTableData=()=>{
     let html = '';
     itemsForOrder.forEach(resp => {
-        html += `<tr>
+        html += `<tr onclick="removeItem('${resp.id}')">
 <td>${resp.name}</td>
 <td>${resp.requestedQty}</td>
 <td>${resp.total}</td>
@@ -146,7 +149,7 @@ const placeOrder = (item) => {
     });
     $('#order-items').html(html);
     calculateTotal();
-};
+}
 
 const isAlreadyExists=(id)=>{
     for(let x=0; x<itemsForOrder.length; x++){
@@ -179,4 +182,16 @@ const calculateTotal=()=>{
         total+=temp.total;
     }
     $('#total').html(total);
+}
+const removeItem=(id)=>{
+    if (confirm('are you sure?')){
+        for (let temp=0; temp<itemsForOrder.length; temp++){
+            if (id==itemsForOrder[temp].id){
+                itemsForOrder.splice(temp,1);
+                loadOrderTableData();
+                return;
+            }
+        }
+    }
+
 }
