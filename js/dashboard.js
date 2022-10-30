@@ -358,3 +358,61 @@ const loadOrderDetailsTable=(id)=>{
     $('#order-details').html(dataHtml);
     $('#order-details-modal-button').click();
 }
+const loadChart=()=>{
+
+    let dataPoints = [];
+    let dataSet = [
+        {date:'10/30/2022',income:250},
+        {date:'10/31/2022',income:500},
+        {date:'11/01/2022',income:780},
+        {date:'11/02/2022',income:450},
+        {date:'11/03/2022',income:650},
+        {date:'11/04/2022',income:420},
+        {date:'11/05/2022',income:851},
+        {date:'11/06/2022',income:562},
+        {date:'11/07/2022',income:420},
+        {date:'11/08/2022',income:950},
+        {date:'11/09/2022',income:250},
+        {date:'11/10/2022',income:500},
+        {date:'11/11/2022',income:780},
+        {date:'11/12/2022',income:450},
+        {date:'11/13/2022',income:650},
+        {date:'11/14/2022',income:420},
+        {date:'11/15/2022',income:851},
+        {date:'11/16/2022',income:562},
+        {date:'11/17/2022',income:420},
+        {date:'11/18/2022',income:950}
+    ];
+
+    let options =  {
+        zoomEnabled:true,
+        animationEnabled: true,
+        theme: "light2",
+        width:1500,
+        title: {
+            text: "Daily Sales Data"
+        },
+        axisX: {
+            valueFormatString: "DD MMM YYYY",
+        },
+        axisY: {
+            title: "USD",
+            titleFontSize: 24
+        },
+        data: [{
+            type: "area",
+            yValueFormatString: "$#,###.##",
+            dataPoints: dataPoints
+        }]
+    };
+
+    for (let i = 0; i < dataSet.length; i++) {
+        dataPoints.push({
+            x: new Date(dataSet[i].date),
+            y: dataSet[i].income
+        });
+    }
+
+    $('#chart-modal-button').click();
+    $("#chart").CanvasJSChart(options);
+}

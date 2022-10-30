@@ -112,7 +112,7 @@
                         <button  style="width: 100%" class="btn btn-outline-dark" onclick="viewOrdersModal()">Show Orders</button>
                     </div>
                     <div class="col-12">
-                        <button  style="width: 100%" class="btn btn-outline-success">Show Improvement</button>
+                        <button onclick="loadChart();"  style="width: 100%" class="btn btn-outline-success">Show Improvement</button>
                     </div>
                 </div>
             </div>
@@ -220,6 +220,30 @@
 </div>
 <!--order details area-->
 
+<!--chart modal-->
+<button style="display: none" id="chart-modal-button" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#chart-modal">
+
+</button>
+<div class="modal fade" id="chart-modal" tabindex="-1" aria-labelledby="order-details-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="chart-modalLabel">Improvement</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="chart-outer" style="width: 100%; height: 500px; overflow: auto" id="chart">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="setPrintData();" type="button" class="btn btn-primary">Print</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--chart area-->
+
 <!-- Modal -->
 
 
@@ -230,6 +254,10 @@
         crossorigin="anonymous"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
 <script src="js/dashboard.js"></script>
 </body>
 </html>
