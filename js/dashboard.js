@@ -336,5 +336,12 @@ let setPrintData=()=>{
     print();
 }
 const loadOrderDetailsTable=(id)=>{
+    let tempOrder = orders.find((e)=>e.id==id);
+    $('#id').html(tempOrder.id);
+    $('#orderDate').html(tempOrder.date);
+    $('#takingTime').html(tempOrder.takingTime);
+    $('#placedTime').html(tempOrder.placedTime);
+    $('#totalCost').html(tempOrder.total);
+    $('#presentedTime').html(tempOrder.presentedTime);
     $('#order-details-modal-button').click();
 }
