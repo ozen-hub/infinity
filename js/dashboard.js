@@ -2,6 +2,7 @@ qty = '';
 //=================
 let itemsForOrder = [];
 let alacarta = [];
+let isInAnOrder=false;
 //=================
 initializeItems = () => {
 
@@ -100,8 +101,32 @@ if (temp === null) {
     window.location.replace('index.html');
 }
 
+//=================calculateTime
+const calculateTime=()=>{
+    let min=0;
+    let sec=0;
+    let timeOut = setInterval(()=>{
+        sec+=1;
+        if (sec<10){
+            $('.sec').html('0'+sec);
+        }else{
+            $('.sec').html(sec);
+        }
+
+    },1000);
+
+}
+//=================calculateTime
 
 const placeOrder = (item) => {
+    //===================Time generate=================
+    if (!isInAnOrder){
+        isInAnOrder=true;
+        calculateTime();
+    }
+
+
+    //===================Time generate=================
     // itemsForOrder.push(item);
     //let temp = alacarta.filter(e=> e.id==item);
     let temp = alacarta.find(e => e.id == item);
