@@ -320,7 +320,7 @@ const viewOrdersModal=()=>{
     let ordersHtml = '';
     orders.forEach(response => {
         ordersHtml += `
-        <tr>
+        <tr onclick="loadOrderDetailsTable('${response.id}')">
            <td>${response.id}</td>
            <td>${response.date}</td>
            <td>${response.total}</td>
@@ -330,4 +330,11 @@ const viewOrdersModal=()=>{
     $('#order-t-body').html(ordersHtml);
 
     $('#orders-modal-button').click();
+}
+let setPrintData=()=>{
+    //$('.main-outer').css('display','none');
+    print();
+}
+const loadOrderDetailsTable=(id)=>{
+    $('#order-details-modal-button').click();
 }

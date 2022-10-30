@@ -150,12 +150,61 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button onclick="print();" type="button" class="btn btn-primary">Print</button>
+                <button onclick="setPrintData();" type="button" class="btn btn-primary">Print</button>
             </div>
         </div>
     </div>
 </div>
 <!--orders area-->
+
+<!--order details modal-->
+<button style="display: none" id="order-details-modal-button" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#order-details-modal">
+
+</button>
+<div class="modal fade" id="order-details-modal" tabindex="-1" aria-labelledby="order-details-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="order-details-modalLabel">Order Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <tbody id="order-details-t-body">
+                        <tr>
+                            <td>Order id</td>
+                            <td id="id">#</td>
+                        </tr>
+                        <tr>
+                            <td>Order Date</td>
+                            <td id="orderDate">#</td>
+                        </tr>
+                        <tr>
+                            <td>Taking Time</td>
+                            <td id="takingTime">#</td>
+                        </tr>
+                        <tr>
+                            <td>Placed Time</td>
+                            <td id="placedTime">#</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td id="totalCost">#</td>
+                        </tr>
+                        <tr>
+                            <td>Presented Time</td>
+                            <td id="presentedTime">#</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button onclick="setPrintData();" type="button" class="btn btn-primary">Print</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--order details area-->
 
 <!-- Modal -->
 
